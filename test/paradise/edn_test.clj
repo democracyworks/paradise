@@ -27,10 +27,11 @@
       (is (= (clojure.edn/read-string edn)
              (read-string edn)))))
   (testing "reads #paradise/regex tagged values as regexes"
-    (let [edn "#paradise/regex \"quux\""]
-      ;; regex equality isn't a thing I guess?
+    (let [edn "#paradise/regex \"quux\""
+          result (read-string edn)]
+      (is (instance? java.util.regex.Pattern result))
       (is (= (.toString #"quux")
-             (.toString (read-string edn))))))
+             (.toString result)))))
   (testing "reads #paradise/sorted-map tagged values as sorted-maps"
     (let [edn "#paradise/sorted-map {:second 2, :first 1}"]
       (is (= (sorted-map :first 1 :second 2)

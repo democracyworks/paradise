@@ -34,6 +34,8 @@
 
 (defmethod edn-encodable? Double [_] true)
 
+(defmethod edn-encodable? BigDecimal [_] true)
+
 (defmethod edn-encodable? PersistentList [_] true)
 
 (defmethod edn-encodable? PersistentVector [_] true)

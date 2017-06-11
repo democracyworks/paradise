@@ -4,7 +4,7 @@
    [paradise.core :refer :all])
   (:import (clojure.lang Symbol Keyword BigInt PersistentList
                          PersistentVector PersistentArrayMap
-                         PersistentHashSet PersistentTreeMap Ratio)
+                         PersistentHashSet PersistentTreeMap Ratio PersistentTreeSet)
            (java.util UUID Date)
            (java.util.regex Pattern)))
 
@@ -65,3 +65,6 @@
 
 (defmethod edn-encode PersistentTreeMap [ptm] [:paradise/sorted-map ptm])
 (defmethod edn-read :paradise/sorted-map [[_ m]] (into (sorted-map) m))
+
+(defmethod edn-encode PersistentTreeSet [pts] [:paradise/sorted-set pts])
+(defmethod edn-read :paradise/sorted-set [[_ s]] (into (sorted-set) s))

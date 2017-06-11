@@ -1,5 +1,7 @@
 # paradise
 
+[![Build Status](https://travis-ci.org/democracyworks/paradise.svg?branch=master)](https://travis-ci.org/democracyworks/paradise)
+
 EDN in Clojure should be paradise. But all too often it isn't.
 
 Examples of frustrating behavior:

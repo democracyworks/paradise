@@ -54,9 +54,9 @@
 (defmethod edn-encodable? Ratio [_] true)
 
 
-;; edn-encode default of .toString
+;; edn-encode default of calling `print-method`
 
-(defmethod edn-encode Object [o] (.toString o))
+(defmethod edn-encode Object [o] (partial print-method o))
 
 
 ;; edn-encode & edn-read methods for common things EDN should handle out of
